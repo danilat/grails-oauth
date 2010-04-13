@@ -32,8 +32,8 @@ class OauthController {
 			//Some services like FireEagle don't retain callback and params
 			//Must store the params in session
 			//def consumerName = params.consumer
-			params.remove('controller')
-			params.remove('action')
+			def errorController = params.remove('controller')
+			def errorAction = params.remove('action')
 			session.cbparams = params
 			
 			def token = oauthService.fetchRequestToken(params.consumer)
